@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2018
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Star_Trooper", "Star_Trooper\Star_Trooper.csproj", "{DA0764ED-5720-45AC-81AD-7AD120826B1E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA0764ED-5720-45AC-81AD-7AD120826B1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA0764ED-5720-45AC-81AD-7AD120826B1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA0764ED-5720-45AC-81AD-7AD120826B1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA0764ED-5720-45AC-81AD-7AD120826B1E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {AEF77CA1-7F3E-4CCE-BB92-6A209E559A04}
+	EndGlobalSection
+EndGlobal
