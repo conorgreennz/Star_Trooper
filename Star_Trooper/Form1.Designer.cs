@@ -28,19 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.TxtName = new System.Windows.Forms.TextBox();
+            this.TxtLives = new System.Windows.Forms.TextBox();
+            this.LblPoints = new System.Windows.Forms.Label();
+            this.LblPts = new System.Windows.Forms.Label();
+            this.LblLives = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblName = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LblName = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LblLives = new System.Windows.Forms.Label();
-            this.LblPts = new System.Windows.Forms.Label();
-            this.LblPoints = new System.Windows.Forms.Label();
-            this.TxtLives = new System.Windows.Forms.TextBox();
-            this.TxtName = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.TmrGame = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -63,6 +65,83 @@
             this.panel1.Size = new System.Drawing.Size(158, 510);
             this.panel1.TabIndex = 0;
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(31, 270);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 49);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Reset";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // TxtName
+            // 
+            this.TxtName.Location = new System.Drawing.Point(31, 76);
+            this.TxtName.Name = "TxtName";
+            this.TxtName.Size = new System.Drawing.Size(100, 20);
+            this.TxtName.TabIndex = 9;
+            // 
+            // TxtLives
+            // 
+            this.TxtLives.Location = new System.Drawing.Point(31, 150);
+            this.TxtLives.Name = "TxtLives";
+            this.TxtLives.Size = new System.Drawing.Size(100, 20);
+            this.TxtLives.TabIndex = 8;
+            // 
+            // LblPoints
+            // 
+            this.LblPoints.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.LblPoints.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPoints.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.LblPoints.ImageAlign = System.Drawing.ContentAlignment.TopRight;
+            this.LblPoints.Location = new System.Drawing.Point(31, 218);
+            this.LblPoints.Name = "LblPoints";
+            this.LblPoints.Size = new System.Drawing.Size(98, 28);
+            this.LblPoints.TabIndex = 7;
+            this.LblPoints.Text = "0";
+            this.LblPoints.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // LblPts
+            // 
+            this.LblPts.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblPts.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LblPts.Location = new System.Drawing.Point(31, 185);
+            this.LblPts.Name = "LblPts";
+            this.LblPts.Size = new System.Drawing.Size(58, 24);
+            this.LblPts.TabIndex = 6;
+            this.LblPts.Text = "Points";
+            // 
+            // LblLives
+            // 
+            this.LblLives.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblLives.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LblLives.Location = new System.Drawing.Point(31, 123);
+            this.LblLives.Name = "LblLives";
+            this.LblLives.Size = new System.Drawing.Size(103, 24);
+            this.LblLives.TabIndex = 5;
+            this.LblLives.Text = "Lives Count";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Papyrus", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.label2.Location = new System.Drawing.Point(-1, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(158, 21);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Starship Troopers";
+            // 
+            // LblName
+            // 
+            this.LblName.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.LblName.Location = new System.Drawing.Point(31, 54);
+            this.LblName.Name = "LblName";
+            this.LblName.Size = new System.Drawing.Size(70, 24);
+            this.LblName.TabIndex = 3;
+            this.LblName.Text = "Name";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Black;
@@ -71,6 +150,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(835, 510);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
+            
             // 
             // menuStrip1
             // 
@@ -96,82 +176,9 @@
             this.stopToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.stopToolStripMenuItem.Text = "Stop";
             // 
-            // LblName
+            // TmrGame
             // 
-            this.LblName.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LblName.Location = new System.Drawing.Point(31, 54);
-            this.LblName.Name = "LblName";
-            this.LblName.Size = new System.Drawing.Size(70, 24);
-            this.LblName.TabIndex = 3;
-            this.LblName.Text = "Name";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Papyrus", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label2.Location = new System.Drawing.Point(-1, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(158, 21);
-            this.label2.TabIndex = 4;
-            this.label2.Text = "Starship Troopers";
-            // 
-            // LblLives
-            // 
-            this.LblLives.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblLives.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LblLives.Location = new System.Drawing.Point(31, 123);
-            this.LblLives.Name = "LblLives";
-            this.LblLives.Size = new System.Drawing.Size(103, 24);
-            this.LblLives.TabIndex = 5;
-            this.LblLives.Text = "Lives Count";
-            // 
-            // LblPts
-            // 
-            this.LblPts.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPts.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LblPts.Location = new System.Drawing.Point(31, 185);
-            this.LblPts.Name = "LblPts";
-            this.LblPts.Size = new System.Drawing.Size(58, 24);
-            this.LblPts.TabIndex = 6;
-            this.LblPts.Text = "Points";
-            // 
-            // LblPoints
-            // 
-            this.LblPoints.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.LblPoints.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblPoints.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.LblPoints.ImageAlign = System.Drawing.ContentAlignment.TopRight;
-            this.LblPoints.Location = new System.Drawing.Point(31, 218);
-            this.LblPoints.Name = "LblPoints";
-            this.LblPoints.Size = new System.Drawing.Size(98, 28);
-            this.LblPoints.TabIndex = 7;
-            this.LblPoints.Text = "0";
-            this.LblPoints.TextAlign = System.Drawing.ContentAlignment.TopRight;
-            // 
-            // TxtLives
-            // 
-            this.TxtLives.Location = new System.Drawing.Point(31, 150);
-            this.TxtLives.Name = "TxtLives";
-            this.TxtLives.Size = new System.Drawing.Size(100, 20);
-            this.TxtLives.TabIndex = 8;
-            // 
-            // TxtName
-            // 
-            this.TxtName.Location = new System.Drawing.Point(31, 76);
-            this.TxtName.Name = "TxtName";
-            this.TxtName.Size = new System.Drawing.Size(100, 20);
-            this.TxtName.TabIndex = 9;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(31, 270);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 49);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Reset";
-            this.button1.UseVisualStyleBackColor = true;
+            this.TmrGame.Tick += new System.EventHandler(this.TmrGame_Tick);
             // 
             // Form1
             // 
@@ -211,6 +218,7 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
+        private System.Windows.Forms.Timer TmrGame;
     }
 }
 

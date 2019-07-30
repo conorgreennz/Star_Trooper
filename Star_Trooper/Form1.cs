@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Resources;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -84,6 +85,30 @@ namespace Star_Trooper
 
             return rotatedImage;
         }
+
+        private void TmrGame_Tick(object sender, EventArgs e)
+        {
+
+        }
+
+        private void pictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            for (int i = 0; i < EnemyList.Count; i++)
+            {
+                Enemy myEnemy = EnemyList[i]; // collect information of the bird from the list
+                e.Graphics.DrawImage(myEnemy.Image, myEnemy.X, myEnemy.Y); // draw the bird image in the picturebox at the set x and y values 
+            }
+
+            for (int i = 0; i < MissileList.Count; i++)
+            {
+                Missile myMissile = MissileList[i]; // collect information of the bullet from the list
+                e.Graphics.DrawImage(myMissile.Image, myMissile.X, myMissile.Y);
+            }
+
+            e.Graphics.DrawImage(UserImage, myUser.X, myUser.Y); // draw the ship image in the picturebox at x value and y value.
+
+        }
+
         private void Form1_Load(object sender, EventArgs e)
         {
 
