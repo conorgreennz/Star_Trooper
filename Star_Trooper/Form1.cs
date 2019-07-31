@@ -562,5 +562,100 @@ namespace Star_Trooper
 
             EnemyList.Add(myEnemy); // add my bird to the list named birdlist 
         }
+
+        private void TxtName_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TmrGame.Enabled)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (
+                    (e.KeyChar >= 'A' && e.KeyChar <= 'Z') // check if enetered character is between A and Z and let it be entered if it is 
+                    || (e.KeyChar >= 'a' && e.KeyChar <= 'z') // check if the entered character is between a and z and let it be entered if it is
+                    || (e.KeyChar == (char)Keys.Back) // convert the int to a character and let it be entered
+                    || (e.KeyChar == (char)Keys.Space) // convert the int ot a character and let it be entered
+                )
+            {
+                return; // if it is then let it be added to the textbox
+            }
+
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                TxtName.Enabled = false; // if the eneter key is pressed then disable the text name textbox 
+                TxtLives.Focus(); // focus on the text lives textbox 
+                e.Handled = true; // say that the character has been handled 
+            }
+
+            else
+            {
+                e.Handled = true; // if not then present the task as already done 
+            }
+
+        }
+        private void TxtLives_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TmrGame.Enabled)
+            {
+                e.Handled = true;
+                return;
+            }
+
+            if (
+                  (e.KeyChar >= '0' && e.KeyChar <= '9') // check if enetered character is between 1 and 9 and let it be entered if it is 
+                  || (e.KeyChar == (char)Keys.Back) // convert the int to a character and let it be entered
+              )
+            {
+                return; // if it is then let it be added to the textbox
+            }
+
+
+            else if (e.KeyChar == (char)Keys.Enter)
+            {
+                // get number from box
+                String x = TxtLives.Text;
+                lives = Int32.Parse(x);
+                //check number is acceptable
+                if (lives >= 1 && lives <= 15)
+                {
+                    // - disable box
+                    TxtLives.Enabled = false;
+
+                    // - start game
+                    TmrGame.Enabled = true;
+
+                    EnemySpeed = 5;
+                    for (int i = 0; i < maxEnemies; i++)
+                    {
+                        IncreaseEnemyCount();
+                    }
+                }
+                else
+                {
+                    e.Handled = true;
+                    // - show error message
+                    MessageBox.Show(" Sorry this value is not accepted. \n Please enter a number between 1 and 15.");
+                    // - put cursor back in box
+                    TxtLives.Focus();
+                }
+
+
+                e.Handled = true;
+            }
+
+            else
+            {
+                e.Handled = true; // if not then present the task as already done 
+            }
+        }
+        private void Form1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (TmrGame.Enabled)
+            {
+                e.Handled = true;
+                return;
+            }
+        }
     }
 }
