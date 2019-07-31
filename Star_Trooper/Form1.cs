@@ -255,6 +255,127 @@ namespace Star_Trooper
                 // max bird = +1
                 IncreaseEnemyCount();
             }
+            else if (Points == 40)
+            {
+                IncreaseEnemySpeed();
+                // max bird = +1
+                IncreaseEnemyCount();
+            }
+
+            else if (Points == 50)
+            {
+                // spawn birds from the top of the form
+                IncreaseEnemyCountTop();
+                IncreaseEnemyCountTop();
+                IncreaseEnemyCountTop();
+                // increase ship speed
+                IncreaseUserSpeed();
+
+            }
+
+            else if (Points == 60)
+            {
+                IncreaseEnemySpeed();
+            }
+
+            else if (Points == 80)
+            {
+                IncreaseEnemySpeed();
+            }
+
+            else if (Points == 100)
+            {
+                //if points = 100  spawn birds from the left of the form
+                IncreaseEnemySpeed();
+                IncreaseUserSpeed();
+            }
+
+            else if (Points == 120)
+            {
+                //if points = 120 increase the speed of the birds
+                IncreaseEnemySpeed();
+            }
+
+            else if (Points == 140)
+            {
+                // if points = 140 increase the speed of the birds
+                IncreaseEnemySpeed();
+            }
+
+            else if (Points == 150)
+            {
+                // if points = 150 spawn birds from the bottom of the form and increase the speed of the birds
+                IncreaseEnemySpeed();
+                IncreaseUserSpeed();
+                // create birds from the bottom
+                IncreaseBirdCountBottom();
+                IncreaseBirdCountBottom();
+                IncreaseBirdCountBottom();
+
+            }
+
+            else if (Points == 160)
+            {
+                // if points = 160 increase the speed of the birds
+                IncreaseEnemySpeed();
+            }
+
+            else if (Points == 180)
+            {
+                // if points = 180 increase the speed of the birds
+                IncreaseEnemySpeed();
+            }
+
+            else if (Points == 200)
+            {
+                //f points = 200 increase the speed of the birds 
+                IncreaseEnemySpeed();
+                IncreaseUserSpeed();
+                // create birds form the left
+                IncreaseBirdCountLeft();
+                IncreaseBirdCountLeft();
+                IncreaseBirdCountLeft();
+            }
+            else if (Points == 210)
+            {
+                IncreaseEnemySpeed();
+            }
+            else if (Points == 220)
+            {
+                IncreaseEnemySpeed();
+            }
+            else if (Points == 230)
+            {
+                IncreaseEnemySpeed();
+            }
+            else if (Points == 240)
+            {
+                IncreaseEnemySpeed();
+            }
+            else if (Points == 250)
+            {
+                IncreaseEnemySpeed();
+            }
+            else if (Points == 260)
+            {
+                IncreaseEnemySpeed();
+            }
+            else if (Points == 270)
+            {
+                IncreaseEnemySpeed();
+            }
+            else if (Points == 280)
+            {
+                IncreaseEnemySpeed();
+            }
+            else if (Points == 290)
+            {
+                IncreaseEnemySpeed();
+            }
+            else if (Points == 300)
+            {
+                IncreaseEnemySpeed();
+            }
         }
 
             private void pictureBox1_Paint(object sender, PaintEventArgs e)
@@ -283,8 +404,10 @@ namespace Star_Trooper
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
-        }
+            MessageBox.Show(" Game Instructions \n-Enter your name and press enter \n-Enter the amount of lives you would like between 1 and 15 \n-To turn the spaceship use the side arrow keys \n-To move the space ship use the W,A,S,D keys \n-To Shoot Lasers press the spacebar \n-Aim to shoot the birds with the lasers \n-Dont get hit by the birds or lose a life \n-Every bird you avoid or shoot you gain a point \n-Be careful, the better score you get the faster they move \n-Goodluck Player!!!");
+            TxtName.Focus(); // once the instruction message has been shown to the player then focus the cursor onto TxtName
+        
+    }
         void ResetEnemy(Enemy myEnemy)
         {
             myEnemy.X = myEnemy.SpawnX; // set the spawn points for the bird using the x, y and angle of the my bird as it spawns 
@@ -300,7 +423,7 @@ namespace Star_Trooper
                 myEnemy.MoveRate = EnemySpeed;
             }
         }
-        void IncreaseShipSpeed()
+        void IncreaseUserSpeed()
         {
 
             myUser.UserMoveRate = myUser.UserMoveRate + 1;
@@ -377,6 +500,47 @@ namespace Star_Trooper
             myEnemy.MoveRate = EnemySpeed; // tell that the bird speed is the new move rate 
 
             EnemyList.Add(myEnemy); // add my bird to the list named birdlist 
+        }
+
+        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TmrGame.Enabled = true; // if the start key is pressed then enable the timer 
+            TxtName.Focus();
+        }
+
+        private void stopToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TmrGame.Enabled = false; // if the stop key is pressed then stop the game timer 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+            // if the reset button is clicked 
+            //stop the game
+            //clear the textbox for the name and lives
+            //enable the textbox for the name and lives
+            //reset points 
+
+            TmrGame.Enabled = false;
+
+            TxtName.Enabled = true;
+            TxtName.Clear();
+
+            TxtLives.Enabled = true;
+            TxtLives.Clear();
+
+            LblPoints.Text = "0";
+
+            TxtName.Focus();
+
+            //reset the ships position
+            myUser.X = 50;
+            myUser.Y = 140;
+            myUser.Angle = 0;
+            UserImage = RotateImage(OGUserImage, myUser.Angle);
+
+
         }
 
         void IncreaseBirdCountLeft()

@@ -74,6 +74,7 @@
             this.button1.TabIndex = 10;
             this.button1.Text = "Reset";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // TxtName
             // 
@@ -150,7 +151,6 @@
             this.pictureBox1.Size = new System.Drawing.Size(835, 510);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
-            
             // 
             // menuStrip1
             // 
@@ -169,12 +169,14 @@
             this.startToolStripMenuItem.Name = "startToolStripMenuItem";
             this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.startToolStripMenuItem.Text = "Start";
+            this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
             // 
             // stopToolStripMenuItem
             // 
             this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
             this.stopToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
             this.stopToolStripMenuItem.Text = "Stop";
+            this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
             // 
             // TmrGame
             // 
