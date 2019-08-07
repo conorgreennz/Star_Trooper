@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Button1 = new System.Windows.Forms.Button();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.TxtLives = new System.Windows.Forms.TextBox();
             this.LblPoints = new System.Windows.Forms.Label();
@@ -38,13 +38,14 @@
             this.LblLives = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.LblName = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.startToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.stopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.StopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TmrGame = new System.Windows.Forms.Timer(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,7 +53,8 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.Maroon;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.button2);
+            this.panel1.Controls.Add(this.Button1);
             this.panel1.Controls.Add(this.TxtName);
             this.panel1.Controls.Add(this.TxtLives);
             this.panel1.Controls.Add(this.LblPoints);
@@ -65,16 +67,16 @@
             this.panel1.Size = new System.Drawing.Size(158, 510);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // Button1
             // 
-            this.button1.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(31, 270);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 49);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Reset";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.Button1.Font = new System.Drawing.Font("Papyrus", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Button1.Location = new System.Drawing.Point(31, 270);
+            this.Button1.Name = "Button1";
+            this.Button1.Size = new System.Drawing.Size(99, 49);
+            this.Button1.TabIndex = 10;
+            this.Button1.Text = "Reset";
+            this.Button1.UseVisualStyleBackColor = true;
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // TxtName
             // 
@@ -143,44 +145,54 @@
             this.LblName.TabIndex = 3;
             this.LblName.Text = "Name";
             // 
-            // pictureBox1
+            // PictureBox1
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.Black;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 27);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(835, 510);
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
+            this.PictureBox1.BackColor = System.Drawing.Color.Black;
+            this.PictureBox1.Location = new System.Drawing.Point(0, 27);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(835, 510);
+            this.PictureBox1.TabIndex = 1;
+            this.PictureBox1.TabStop = false;
             // 
             // menuStrip1
             // 
             this.menuStrip1.BackColor = System.Drawing.Color.DarkGray;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.startToolStripMenuItem,
-            this.stopToolStripMenuItem});
+            this.StartToolStripMenuItem,
+            this.StopToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(993, 24);
             this.menuStrip1.TabIndex = 2;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // startToolStripMenuItem
+            // StartToolStripMenuItem
             // 
-            this.startToolStripMenuItem.Name = "startToolStripMenuItem";
-            this.startToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.startToolStripMenuItem.Text = "Start";
-            this.startToolStripMenuItem.Click += new System.EventHandler(this.startToolStripMenuItem_Click);
+            this.StartToolStripMenuItem.Name = "StartToolStripMenuItem";
+            this.StartToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.StartToolStripMenuItem.Text = "Start";
+            this.StartToolStripMenuItem.Click += new System.EventHandler(this.StartToolStripMenuItem_Click);
             // 
-            // stopToolStripMenuItem
+            // StopToolStripMenuItem
             // 
-            this.stopToolStripMenuItem.Name = "stopToolStripMenuItem";
-            this.stopToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
-            this.stopToolStripMenuItem.Text = "Stop";
-            this.stopToolStripMenuItem.Click += new System.EventHandler(this.stopToolStripMenuItem_Click);
+            this.StopToolStripMenuItem.Name = "StopToolStripMenuItem";
+            this.StopToolStripMenuItem.Size = new System.Drawing.Size(43, 20);
+            this.StopToolStripMenuItem.Text = "Stop";
+            this.StopToolStripMenuItem.Click += new System.EventHandler(this.StopToolStripMenuItem_Click);
             // 
             // TmrGame
             // 
             this.TmrGame.Tick += new System.EventHandler(this.TmrGame_Tick);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Papyrus", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(31, 325);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 49);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "High Score";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 
@@ -188,7 +200,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Maroon;
             this.ClientSize = new System.Drawing.Size(993, 536);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.PictureBox1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -197,7 +209,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
@@ -208,7 +220,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Button1;
         private System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.TextBox TxtLives;
         private System.Windows.Forms.Label LblPoints;
@@ -216,11 +228,12 @@
         private System.Windows.Forms.Label LblLives;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblName;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox PictureBox1;
         private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem startToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem stopToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StartToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem StopToolStripMenuItem;
         private System.Windows.Forms.Timer TmrGame;
+        private System.Windows.Forms.Button button2;
     }
 }
 

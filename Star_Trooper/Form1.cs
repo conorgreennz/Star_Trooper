@@ -97,7 +97,7 @@ namespace Star_Trooper
                 if (myUser.X > 0)
                 {
                  myUser.MoveLeft(); // use the sequence of move left in the ships class
-                    pictureBox1.Invalidate(); //Update the picture box with the new sequence
+                    PictureBox1.Invalidate(); //Update the picture box with the new sequence
                 }
             }
             if (((keys[(int)Keys.D]) & 128) == 128)
@@ -105,7 +105,7 @@ namespace Star_Trooper
                 if (myUser.X < 708)
                 {
                     myUser.MoveRight(); // change the position of the ship using the sequence described as move right in the ships class
-                    pictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
+                    PictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
                 }
             }
             if (((keys[(int)Keys.W]) & 128) == 128)
@@ -113,7 +113,7 @@ namespace Star_Trooper
                 if (myUser.Y > 0)
                 {
                     myUser.MoveUp(); // change position of the ship using the sequence described as move up in the ships class
-                    pictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
+                    PictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
                 }
             }
             if (((keys[(int)Keys.S]) & 128) == 128)
@@ -121,20 +121,20 @@ namespace Star_Trooper
                 if (myUser.Y < 392)
                 {
                     myUser.MoveDown(); // change position of the ship using the sequence described as move down in the ships class                
-                    pictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
+                    PictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
                 }
             }
             if (((keys[(int)Keys.Left]) & 128) == 128)
             {
                 myUser.RotateLeft();
                 UserImage = RotateImage(OGUserImage, myUser.Angle); // rotate the image to the required angle.              
-                pictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
+                PictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
             }
             if (((keys[(int)Keys.Right]) & 128) == 128)
             {
                 myUser.RotateRight();
                 UserImage = RotateImage(OGUserImage, myUser.Angle); // rotate the image to the required angle.              
-                pictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
+                PictureBox1.Invalidate(); // invalidate the picture box with the new image of the moved images and label
             }
             if (((keys[(int)Keys.Space]) & 128) == 128)
             {
@@ -163,11 +163,11 @@ namespace Star_Trooper
                     // off the top
                     (myEnemy.Y < -74)
                     // off the bottom
-                    || (myEnemy.Y > pictureBox1.Height + 10)
+                    || (myEnemy.Y > PictureBox1.Height + 10)
                     // off the left
                     || (myEnemy.X < -74)
                     // off the right
-                    || (myEnemy.X > pictureBox1.Width + 10)
+                    || (myEnemy.X > PictureBox1.Width + 10)
 
                 )
                 { // then reset the birds position on the y and x axis and give it a new random angle 
@@ -181,8 +181,8 @@ namespace Star_Trooper
                 myMissile.Move(); // take the value of the bullet from the list and enable it to move 
 
                 // if the bullet has gone off the screen
-                if (myMissile.X > pictureBox1.Width
-                    || myMissile.Y > pictureBox1.Height
+                if (myMissile.X > PictureBox1.Width
+                    || myMissile.Y > PictureBox1.Height
                     || myMissile.X < 0
                     || myMissile.Y < 0
                      )
@@ -235,8 +235,8 @@ namespace Star_Trooper
                     {
                         TmrGame.Enabled = false;
                         MessageBox.Show("Game Over");
-                        startToolStripMenuItem.Enabled = false;
-                        stopToolStripMenuItem.Enabled = false;
+                        StartToolStripMenuItem.Enabled = false;
+                        StopToolStripMenuItem.Enabled = false;
 
                     }
 
@@ -378,7 +378,7 @@ namespace Star_Trooper
             }
         }
 
-            private void pictureBox1_Paint(object sender, PaintEventArgs e)
+            private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
             for (int i = 0; i < EnemyList.Count; i++)
             {
@@ -434,8 +434,8 @@ namespace Star_Trooper
             Enemy myEnemy;
 
             myEnemy = new Enemy(); // create and instantiate the bird 
-            myEnemy.SpawnX = pictureBox1.Width + 10;// set its x value to the full width of the picturebox to which it is displayed plus ten so it does not stat visable to the player 
-            myEnemy.SpawnY = RandomNumber.Next(0, pictureBox1.Height); // set the birds y to a random number on the y axis within the paraeters of 0 and the top of the picturebox 
+            myEnemy.SpawnX = PictureBox1.Width + 10;// set its x value to the full width of the picturebox to which it is displayed plus ten so it does not stat visable to the player 
+            myEnemy.SpawnY = RandomNumber.Next(0, PictureBox1.Height); // set the birds y to a random number on the y axis within the paraeters of 0 and the top of the picturebox 
             myEnemy.X = myEnemy.SpawnX;
             myEnemy.Y = myEnemy.SpawnY;
 
@@ -452,7 +452,7 @@ namespace Star_Trooper
             Enemy myEnemy;
 
             myEnemy = new Enemy(); // create and instantiate the bird 
-            myEnemy.SpawnX = RandomNumber.Next(10, pictureBox1.Width);// set its x value to the widthof the picturebox to which it is displayed between a number of the width of the picture box and ten so it does not start visable to the player 
+            myEnemy.SpawnX = RandomNumber.Next(10, PictureBox1.Width);// set its x value to the widthof the picturebox to which it is displayed between a number of the width of the picture box and ten so it does not start visable to the player 
             myEnemy.SpawnY = -64 - 10; // set the birds y axis to start at the top of the picturebox not visable by the player  
             myEnemy.X = myEnemy.SpawnX;
             myEnemy.Y = myEnemy.SpawnY;
@@ -480,8 +480,8 @@ namespace Star_Trooper
             Enemy myEnemy;
 
             myEnemy = new Enemy(); // create and instantiate the bird 
-            myEnemy.SpawnX = RandomNumber.Next(1, pictureBox1.Width);// set its x value to the full width of the picturebox to which it is displayed plus ten so it does not stat visable to the player 
-            myEnemy.SpawnY = pictureBox1.Height; // set the birds y to a random number on the y axis within the parameters of 0 and the top of the picturebox 
+            myEnemy.SpawnX = RandomNumber.Next(1, PictureBox1.Width);// set its x value to the full width of the picturebox to which it is displayed plus ten so it does not stat visable to the player 
+            myEnemy.SpawnY = PictureBox1.Height; // set the birds y to a random number on the y axis within the parameters of 0 and the top of the picturebox 
             myEnemy.X = myEnemy.SpawnX; // set a x position spawn point
             myEnemy.Y = myEnemy.SpawnY; // set a y position spawn point 
 
@@ -502,18 +502,18 @@ namespace Star_Trooper
             EnemyList.Add(myEnemy); // add my bird to the list named birdlist 
         }
 
-        private void startToolStripMenuItem_Click(object sender, EventArgs e)
+        private void StartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TmrGame.Enabled = true; // if the start key is pressed then enable the timer 
             TxtName.Focus();
         }
 
-        private void stopToolStripMenuItem_Click(object sender, EventArgs e)
+        private void StopToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TmrGame.Enabled = false; // if the stop key is pressed then stop the game timer 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
 
             // if the reset button is clicked 
@@ -549,7 +549,7 @@ namespace Star_Trooper
 
             myEnemy = new Enemy(); // create and instantiate the bird 
             myEnemy.SpawnX = 0 - 10;// set its x value to the left side of the picturebox to which it is displayed minus ten so it does not start visable to the player 
-            myEnemy.SpawnY = RandomNumber.Next(1, pictureBox1.Height); // set the birds y to a random number on the y axis within the parameters of 0 and the top of the picturebox 
+            myEnemy.SpawnY = RandomNumber.Next(1, PictureBox1.Height); // set the birds y to a random number on the y axis within the parameters of 0 and the top of the picturebox 
             myEnemy.X = myEnemy.SpawnX; // set a x position spawn point
             myEnemy.Y = myEnemy.SpawnY; // set a y position spawn point 
 
