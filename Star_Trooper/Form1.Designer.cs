@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.Button1 = new System.Windows.Forms.Button();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.TxtLives = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.StartToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.StopToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TmrGame = new System.Windows.Forms.Timer(this.components);
-            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.menuStrip1.SuspendLayout();
@@ -66,6 +66,16 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(158, 510);
             this.panel1.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Papyrus", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(31, 325);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(100, 49);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "High Score";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // Button1
             // 
@@ -182,17 +192,8 @@
             // 
             // TmrGame
             // 
+            this.TmrGame.Enabled = true;
             this.TmrGame.Tick += new System.EventHandler(this.TmrGame_Tick);
-            // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Papyrus", 9.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(31, 325);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 49);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "High Score";
-            this.button2.UseVisualStyleBackColor = true;
             // 
             // Form1
             // 

@@ -19,6 +19,11 @@ namespace Star_Trooper
 
         private void BtnClose_Click_1(object sender, EventArgs e)
         {
+            Close();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
         }
     }

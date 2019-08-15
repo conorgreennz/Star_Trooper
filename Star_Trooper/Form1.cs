@@ -35,7 +35,7 @@ namespace Star_Trooper
             InitializeComponent();
             // Secondary image provides as a base for the computer to reference while the image rotates and pixelates 
 
-            OGUserImage = GetResourceByImageName("Ship");
+            OGUserImage = GetResourceByImageName("User");
             OGUserImage.MakeTransparent(Color.Black);
 
             OGEnemyImage = GetResourceByImageName("Enemy");
@@ -244,6 +244,7 @@ namespace Star_Trooper
                 }
 
             }
+            PictureBox1.Invalidate();
         }
         void CheckPoints()
         {
@@ -376,38 +377,9 @@ namespace Star_Trooper
             {
                 IncreaseEnemySpeed();
             }
-        }
+        } 
 
-            private void PictureBox1_Paint(object sender, PaintEventArgs e)
-        {
-            for (int i = 0; i < EnemyList.Count; i++)
-            {
-                Enemy myEnemy = EnemyList[i]; // collect information of the bird from the list
-                e.Graphics.DrawImage(myEnemy.Image, myEnemy.X, myEnemy.Y); // draw the bird image in the picturebox at the set x and y values 
-            }
-
-            for (int i = 0; i < MissileList.Count; i++)
-            {
-                Missile myMissile = MissileList[i]; // collect information of the bullet from the list
-                e.Graphics.DrawImage(myMissile.Image, myMissile.X, myMissile.Y);
-            }
-
-            e.Graphics.DrawImage(UserImage, myUser.X, myUser.Y); // draw the ship image in the picturebox at x value and y value.
-
-        }
-
-        // example stolen from https://stackoverflow.com/questions/709540/capture-multiple-key-downs-in-c-sharp
-        // this enables me to read multiple key presses simultaneously 
-        [DllImport("user32.dll")]
-        public static extern int GetKeyboardState(byte[] keystate);
-        // end of example  
-
-        private void Form1_Load(object sender, EventArgs e)
-        {
-            MessageBox.Show(" Game Instructions \n-Enter your name and press enter \n-Enter the amount of lives you would like between 1 and 15 \n-To turn the spaceship use the side arrow keys \n-To move the space ship use the W,A,S,D keys \n-To Shoot Lasers press the spacebar \n-Aim to shoot the birds with the lasers \n-Dont get hit by the birds or lose a life \n-Every bird you avoid or shoot you gain a point \n-Be careful, the better score you get the faster they move \n-Goodluck Player!!!");
-            TxtName.Focus(); // once the instruction message has been shown to the player then focus the cursor onto TxtName
-        
-    }
+       
         void ResetEnemy(Enemy myEnemy)
         {
             myEnemy.X = myEnemy.SpawnX; // set the spawn points for the bird using the x, y and angle of the my bird as it spawns 
@@ -447,6 +419,7 @@ namespace Star_Trooper
             EnemyList.Add(myEnemy); // add my bird to the list named birdlist 
 
         }
+
         void IncreaseEnemyCountTop()
         {
             Enemy myEnemy;
@@ -502,6 +475,57 @@ namespace Star_Trooper
             EnemyList.Add(myEnemy); // add my bird to the list named birdlist 
         }
 
+        void IncreaseBirdCountLeft()
+        {
+            Enemy myEnemy;
+
+            myEnemy = new Enemy(); // create and instantiate the bird 
+            myEnemy.SpawnX = 0 - 10;// set its x value to the left side of the picturebox to which it is displayed minus ten so it does not start visable to the player 
+            myEnemy.SpawnY = RandomNumber.Next(1, PictureBox1.Height); // set the birds y to a random number on the y axis within the parameters of 0 and the top of the picturebox 
+            myEnemy.X = myEnemy.SpawnX; // set a x position spawn point
+            myEnemy.Y = myEnemy.SpawnY; // set a y position spawn point 
+
+            myEnemy.SpawnAngle = RandomNumber.Next(135, 225); // set the birds angle to a random variable using the random number generator 
+            myEnemy.Angle = myEnemy.SpawnAngle; // tell that the spawn point is equal to the given angle 
+            myEnemy.Image = (Bitmap)OGEnemyImage.Clone();
+            myEnemy.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
+            myEnemy.Image = RotateImage(myEnemy.Image, myEnemy.Angle - 180); // rotate the image to the required angle. using the OG image as a reference 
+            myEnemy.MoveRate = EnemySpeed; // tell that the bird speed is the new move rate 
+
+            EnemyList.Add(myEnemy); // add my bird to the list named birdlist 
+        }
+
+        private void PictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            for (int i = 0; i < EnemyList.Count; i++)
+            {
+                Enemy myEnemy = EnemyList[i]; // collect information of the bird from the list
+                e.Graphics.DrawImage(myEnemy.Image, myEnemy.X, myEnemy.Y); // draw the bird image in the picturebox at the set x and y values 
+            }
+
+            for (int i = 0; i < MissileList.Count; i++)
+            {
+                Missile myMissile = MissileList[i]; // collect information of the bullet from the list
+                e.Graphics.DrawImage(myMissile.Image, myMissile.X, myMissile.Y);
+            }
+
+            e.Graphics.DrawImage(UserImage, myUser.X, myUser.Y); // draw the ship image in the picturebox at x value and y value.
+
+        }
+
+        // example stolen from https://stackoverflow.com/questions/709540/capture-multiple-key-downs-in-c-sharp
+        // this enables me to read multiple key presses simultaneously 
+        [DllImport("user32.dll")]
+        public static extern int GetKeyboardState(byte[] keystate);
+        // end of example 
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            MessageBox.Show(" Game Instructions \n-Enter your name and press enter \n-Enter the amount of lives you would like between 1 and 15 \n-To turn the spaceship use the side arrow keys \n-To move the space ship use the W,A,S,D keys \n-To Shoot Missiles press the spacebar \n-Aim to shoot the Enemies with the missiles \n-Dont get hit by the enemies or lose a life \n-Every enemy you avoid or shoot you gain a point \n-Be careful, the better score you get the faster they move \n-Goodluck Player!!!");
+            TxtName.Focus(); // once the instruction message has been shown to the player then focus the cursor onto TxtName
+
+        }
+
         private void StartToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TmrGame.Enabled = true; // if the start key is pressed then enable the timer 
@@ -543,25 +567,7 @@ namespace Star_Trooper
 
         }
 
-        void IncreaseBirdCountLeft()
-        {
-            Enemy myEnemy;
-
-            myEnemy = new Enemy(); // create and instantiate the bird 
-            myEnemy.SpawnX = 0 - 10;// set its x value to the left side of the picturebox to which it is displayed minus ten so it does not start visable to the player 
-            myEnemy.SpawnY = RandomNumber.Next(1, PictureBox1.Height); // set the birds y to a random number on the y axis within the parameters of 0 and the top of the picturebox 
-            myEnemy.X = myEnemy.SpawnX; // set a x position spawn point
-            myEnemy.Y = myEnemy.SpawnY; // set a y position spawn point 
-
-            myEnemy.SpawnAngle = RandomNumber.Next(135, 225); // set the birds angle to a random variable using the random number generator 
-            myEnemy.Angle = myEnemy.SpawnAngle; // tell that the spawn point is equal to the given angle 
-            myEnemy.Image = (Bitmap)OGEnemyImage.Clone();
-            myEnemy.Image.RotateFlip(RotateFlipType.RotateNoneFlipX);
-            myEnemy.Image = RotateImage(myEnemy.Image, myEnemy.Angle - 180); // rotate the image to the required angle. using the OG image as a reference 
-            myEnemy.MoveRate = EnemySpeed; // tell that the bird speed is the new move rate 
-
-            EnemyList.Add(myEnemy); // add my bird to the list named birdlist 
-        }
+       
 
         private void TxtName_KeyPress(object sender, KeyPressEventArgs e)
         {
